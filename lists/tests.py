@@ -98,6 +98,7 @@ class ListViewTest(TestCase):
 
         response = self.client.get('/lists/the-only-list-in-the-world/')
 
-
-        self.assertContains(response, 'itemey 1')
+        self.contains = self.assertContains(response, 'itemey 1')
         self.assertContains(response, 'itemey 2')
+
+        self._assert_raises_message_cm('diff check')
