@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
-from lists.models import Item
+from lists.models import Item, List
 
 
 def home_page(request):
@@ -18,18 +18,25 @@ def home_page(request):
 
     # The code with redirect
 
-    if request.method == 'POST':
-        Item.objects.create(text=request.POST['item_text'])
-        return redirect('/lists/the-only-list-in-the-world/')
+    # if request.method == 'POST':
+    #     Item.objects.create(text=request.POST['item_text'])
+    #     return redirect('/lists/the-only-list-in-the-world/')
+    #
+    # items = Item.objects.all()
+    # return render(request, 'home.html')
 
-    items = Item.objects.all()
-
+    #code after new list views have taken over the redirect
     return render(request, 'home.html')
 
 
 def view_list(request):
     items = Item.objects.all()
     return render(request, 'list.html', {'items':items,})
+
+def new_list(request):
+    list_ = List.objects.create()
+    Item.objects.create(text=request.POST['item_text'], list=list_)
+    return redirect('/lists/the-only-list-in-the-world/')
 
 
 

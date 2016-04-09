@@ -47,7 +47,7 @@ class NewVisitorTest(LiveServerTestCase):
         self.check_for_row_in_list_table('1: Buy peacock feathers')
 
         import time
-        time.sleep(5)
+        time.sleep(2)
 
 
         # There is still a text box inviting her to add another item. She
