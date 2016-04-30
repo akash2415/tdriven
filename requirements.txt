@@ -10,3 +10,4 @@ ruamel.base==1.0.0
 ruamel.yaml==0.10.13
 selenium==2.53.1
 whichcraft==0.1.1
+gunicorn==19.4.5
