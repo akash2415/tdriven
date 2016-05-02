@@ -17,7 +17,7 @@ def deploy():
     _update_static_files(source_folder)
     _update_database(source_folder)
 
-# ALERT: This name needs to be changed into databse and static
+
 def _create_directory_structure_if_necessary(site_folder):
     for subfolder in ('database', 'static', 'virtualenv', 'source'):
         run('mkdir -p %s/%s' % (site_folder, subfolder))
